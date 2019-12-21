@@ -7,9 +7,9 @@ var Parse = {
     $.ajax({
       url: Parse.server,
       type: 'POST',
-      data: /* get formatted data from formView.js */,
+      data: JSON.stringify(message), /* get formatted data from formView.js */
       contentType: 'application/json',
-      success: /* function call to readAll */,
+      success: successCB /* function call to readAll */,
       error: errorCB || function(error) {
         console.error('chatterbox: Failed to fetch messages', error);
       }

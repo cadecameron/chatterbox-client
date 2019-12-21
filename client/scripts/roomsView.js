@@ -7,6 +7,12 @@ var RoomsView = {
   },
 
   render: function() {
-  }
 
+    // for each roomName found in results array, renderRoom (roomName)
+  },
+
+  renderRoom: function(roomName) {
+    // take in a room name string, and adds it to $('#rooms select') dropdown
+
+  }
 };
