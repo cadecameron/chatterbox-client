@@ -1,19 +1,32 @@
 var MessageView = {
 
-      /*
-      var message = {
-        username: 'Mel Brooks',
-        text: 'Never underestimate the power of the Schwartz!',
-        roomname: 'lobby'
-      };
-    */
+  $username: $('.username'),
+  // $usernameLink: $('div.username'),
 
+  initialize: function () {
+    console.log('MessageView init triggered!');
+    $('#chats').on('click', 'a', MessageView.handleUsernameClick);
+  },
+
+  /*
+  var message = {
+    username: 'Mel Brooks',
+    text: 'Never underestimate the power of the Schwartz!',
+    roomname: 'lobby'
+  };
+  */
+
+  // create an underscore template object.
+  // TODO: handle clicks on username <a> tags to add friend
   render: _.template(`
-      <div class="chat" roomname="<% roomnam %>">
-        <div class="username"><%= username %></div>
-        <div><%= text %></div>
+      <div id="<%= objectId %>" class="chat" roomname='<%= roomname %>'>
+        <div class="username"><a href='#'><%= username %></a></div>
+        <div class="message-text"><%= text %></div>
       </div>
-    `)
+    `),
 
-  // function that takes in an message object, and
+  handleUsernameClick: function (event) {
+    event.preventDefault();
+    Friends.toggleStatus(event.target.text);
+  }
 };

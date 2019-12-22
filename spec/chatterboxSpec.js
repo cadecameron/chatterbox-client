@@ -67,6 +67,7 @@ describe('chatterbox', function() {
   describe('chatroom behavior', function() {
     it('should be able to add messages to the DOM', function() {
       var message = {
+        objectId: '0000000000',
         username: 'Mel Brooks',
         text: 'Never underestimate the power of the Schwartz!',
         roomname: 'lobby'
@@ -88,6 +89,7 @@ describe('chatterbox', function() {
 
       App.initialize();
       MessagesView.renderMessage({
+        objectId: '0000000000',
         username: 'Mel Brooks',
         text: 'I didn\'t get a harumph outa that guy.!',
         roomname: 'lobby'
