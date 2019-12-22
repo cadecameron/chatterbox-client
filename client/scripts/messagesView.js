@@ -8,7 +8,8 @@ var MessagesView = {
 
   // create function that iterates through entire results array, and passes each message object to renderMessage function
   render: function (resultsArray) {
-    MessagesView.$chats.innerHTML = '';
+    // clear the current chat list
+    $('#chats').html('');
     // iterate through the results array, and call renderMessage for each message object
     for (let i = resultsArray.length - 1; i >= 0; i--) {
       if (resultsArray[i].text !== '') {
