@@ -5,12 +5,12 @@ var RoomsView = {
   $roomNameField: $('#roomNameField'),
 
   initialize: function() {
-    //click handler in jQuery
     RoomsView.$button.on('click', RoomsView.handleAddRoom);
     RoomsView.$select.on('change', RoomsView.handleRoomChange);
   },
 
   render: function(roomsArray) {
+
     // for each roomName found in results array, renderRoom (roomName)
     for (let i = 0; i < roomsArray.length; i++) {
       RoomsView.renderRoom(roomsArray[i]);
@@ -18,11 +18,8 @@ var RoomsView = {
   },
 
   renderRoom: function(roomName) {
-    // take in a room name string, and adds it to $('#rooms select') dropdown
-    // format a string = <option value="">--Please choose an option--</option>
 
-
-    // roomName = sanatize roomName before creating new htmlString function
+    // take in a room name string, and add it to $('#rooms select') dropdown
     var htmlString = `<option value="${roomName}">${roomName}</options>`;
     this.$select.append(htmlString);
   },
@@ -36,5 +33,4 @@ var RoomsView = {
     console.log(event.target.value);
     MessagesView.filterMessagesByRoomName(event.target.value);
   }
-
 };

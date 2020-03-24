@@ -8,17 +8,14 @@ var FormView = {
   },
 
   handleSubmit: function(event) {
-    // Stop the browser from submitting the form
-    event.preventDefault();
+    event.preventDefault(); // Stop the browser from submitting the form
     var userName;
-    // check if browser has access to global username, and if not assign default value
-    if (window.location.search) {
+    if (window.location.search) { // check if browser has access to global username, and if not assign default value
       userName = window.location.search.substring(10);
     } else {
       userName = 'anonymous';
     }
     var roomName = RoomsView.$select.val();
-
     var message = Messages.formatNewMessage(userName, roomName, FormView.$messageField.val());
     Parse.create(message, function() {
       App.startSpinner();
@@ -30,5 +27,4 @@ var FormView = {
     var status = active ? 'true' : null;
     FormView.$form.find('input[type=submit]').attr('disabled', status);
   }
-
 };

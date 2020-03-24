@@ -1,15 +1,14 @@
 var Messages = {
 
-  // store, manipulate messages data
-
   // function to process readAll results
   processResults: function (allMessagesObject) {
+    
     // process object, and send to render
     var resultsArray = allMessagesObject.results;
 
     // walk through the results array, and sanitize all key/property pairs, add default values if values are blank/not valid, or key doesn't exist
 
-    for (i = 0; i < resultsArray.length; i++) { // for each message object in results array...
+    for (i = 0; i < resultsArray.length; i++) {
 
       for (var key in resultsArray[i]) { // for each key in the message object
 
@@ -56,15 +55,7 @@ var Messages = {
     return sanitizedString;
   },
 
-
-  // create a function to format valid messages object
-  /*
-var message = {
-  username: 'shawndrost',
-  text: 'trololo',
-  roomname: '4chan'
-};
-  */
+  // function to format valid messages object
   formatNewMessage: function (userName, roomName, text) {
     var message = {
       username: userName,
@@ -73,5 +64,4 @@ var message = {
     };
     return message;
   }
-
 };
